@@ -1,1 +1,1 @@
-pub mod majority_element;
+pub mod majority_element_161;
