@@ -1,8 +1,20 @@
-// Given an array *prices* where prices[i] is the price of a given stock on ith day, return the maximum profit that can be achieved by:
-// Choosing a single day to buy one stock and choosing a different day in the future to sell the stock.
-// If profit cannot be achieved, return 0.
-// Constraints: 1 <= prices.length <= 10exp5 | 0 <= prices[i] <= 10exp4.
-
+/// [121: Best Time To Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/).
+///
+/// Determines the maximum profit achievable from a series of stock prices.
+///
+/// Given a vector `prices`, where `prices[i]` corresponds to the stock's price on day `i`.
+/// It computes the optimal profit by:
+/// - Identifying the best day to buy a stock, and
+/// - Selecting a subsequent day to sell that stock.
+/// If no profitable transaction is possible, 0 is returned.
+///
+/// # Constraints:
+/// - 1 <= prices.length <= 10^5
+/// - 0 <= prices[i] <= 10^4
+///
+/// # Complexity:
+/// - Time: O(n)
+/// - Space: O(1)
 pub fn max_profit(prices: Vec<i32>) -> i32 {
     let mut min_price = i32::MAX; // Initialized with i32::MAX to ensure the first stock price updates min_price.
     let mut max_profit = 0;
@@ -27,7 +39,7 @@ mod tests {
         // Descending prices, profit not achievable.
         assert_eq!(max_profit(vec![9, 8, 7, 6, 1]), 0);
 
-        // Buy on day 2 (price = 1) and sell on day 5 price = 6, profit = 6-1 = 5.]
+        // Buy on day 2 (price = 1) and sell on day 5 price = 6, profit = 6-1 = 5.
         assert_eq!(max_profit(vec![7, 1, 5, 3, 6, 4]), 5);
 
         // Ascending prices, profit achievable by buying on day 1 and selling on the last day.

@@ -1,1 +1,1 @@
-pub mod 121;
+pub mod lc_121;
