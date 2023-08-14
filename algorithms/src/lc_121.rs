@@ -9,12 +9,12 @@
 /// If no profitable transaction is possible, 0 is returned.
 ///
 /// # Constraints:
-/// - 1 <= prices.length <= 10^5
-/// - 0 <= prices[i] <= 10^4
+/// - 1 <= prices.length <= 10^5.
+/// - 0 <= prices[i] <= 10^4.
 ///
 /// # Complexity:
-/// - Time: O(n)
-/// - Space: O(1)
+/// - Time: O(n).
+/// - Space: O(1).
 pub fn max_profit(prices: Vec<i32>) -> i32 {
     let mut min_price = i32::MAX; // Initialized with i32::MAX to ensure the first stock price updates min_price.
     let mut max_profit = 0;
