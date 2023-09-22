@@ -32,5 +32,13 @@ use std::collections::HashMap;
 pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
     let mut checked_elements = HashMap::new();
 
-    
+    for (index, current_element) in numbers.iter().enumerate() {
+        let mut needed_element = target - current_element;
+
+        if checked_elements.contains_key(&needed_element) {
+            return index, checked_elements[&needed_element]; 
+        }
+
+        checked_elements.insert(current_element, index);        
+    }
 }
