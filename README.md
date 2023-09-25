@@ -1,2 +1,2 @@
 # arca
-A collection of performant Leetcode solutions written in Rust.
+A collection of performant algorithms written in Rust.
