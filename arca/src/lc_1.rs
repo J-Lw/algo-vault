@@ -11,11 +11,11 @@
 /// - 2 <= numbers.length <= 10^4.
 /// - -10^9 <= numbers[i] <= 10^9.
 /// - -10^9 <= target <= 10^9.
-/// 
+///
 /// # Complexity:
-/// - 
-/// - 
-/// 
+/// -
+/// -
+///
 /// # Intuition:
 /// - Initialize a hashmap to store seen elements and their indices to enable O(1) lookups.
 /// - Iterate over entire array to perform per-element operations.
@@ -28,17 +28,30 @@
 /// - Once the pair of elements that equate to the target value are found, their indices can be returned by
 /// returning the current loop iteration index along with the index associated with the complement value in the hashmap.
 use std::collections::HashMap;
-   
+
 pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
     let mut checked_elements = HashMap::new();
 
     for (index, current_element) in numbers.iter().enumerate() {
-        let mut needed_element = target - current_element;
+        let needed_element = target - current_element;
 
-        if checked_elements.contains_key(&needed_element) {
-            return index, checked_elements[&needed_element]; 
+        if checked_elements.contains_key(needed_element) {
+            return vec![checked_elements[needed_element], index as i32];
         }
 
-        checked_elements.insert(current_element, index);        
+        checked_elements.insert(current_element, index as i32);
+    }
+
+    return Vec::new();
+}
+
+#[cfg(test)]
+mod tests {
+    use super::two_sum;
+
+    #[test]
+    fn test_two_sum() {
+        // Standard case.
+        assert_eq!(two_sum(vec![1, 2, 3, 4, 5], 9), vec![3, 4]);
     }
 }

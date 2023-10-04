@@ -45,8 +45,5 @@ mod tests {
 
         // Anagrams.
         assert!(is_anagram("silent".to_string(), "listen".to_string()));
-
-        // Not anagrams: same lengths.
-        assert!(!is_anagram("triangle".to_string(), "integral".to_string()));
     }
 }
