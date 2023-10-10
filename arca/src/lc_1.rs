@@ -1,6 +1,6 @@
 /// [1: Two Sum](https://leetcode.com/problems/two-sum/).
 ///
-/// Solution desc.
+/// Takes a vector of integers and produces the indices of two distinct numbers that form a specified target.
 ///
 /// # Problem Statement:
 /// - Given an array of integers 'numbers' and an integer 'target'.
@@ -13,8 +13,8 @@
 /// - -10^9 <= target <= 10^9.
 ///
 /// # Complexity:
-/// -
-/// -
+/// - Time: O(n).
+/// - Space: O(n).
 ///
 /// # Intuition:
 /// - Initialize a hashmap to store seen elements and their indices to enable O(1) lookups.
@@ -35,8 +35,8 @@ pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
     for (index, current_element) in numbers.iter().enumerate() {
         let needed_element = target - current_element;
 
-        if checked_elements.contains_key(needed_element) {
-            return vec![checked_elements[needed_element], index as i32];
+        if checked_elements.contains_key(&needed_element) {
+            return vec![checked_elements[&needed_element], index as i32];
         }
 
         checked_elements.insert(current_element, index as i32);
